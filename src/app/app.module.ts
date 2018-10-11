@@ -35,7 +35,7 @@ import { AngularFireFunctionsModule } from 'angularfire2/functions';
     UiModule,
     NotesModule,
     UploadsModule,
-    AngularFireModule.initializeApp(environment.firebase, 'firestarter'),
+    AngularFireModule.initializeApp(environment.firebase, 'dogfire'),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,

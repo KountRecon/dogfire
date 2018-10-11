@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "firestarter": {
+    "dogfire": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/firestarter",
+            "outputPath": "dist/dogfire",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -56,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "firestarter:build"
+            "browserTarget": "dogfire:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "firestarter:build:production"
+              "browserTarget": "dogfire:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "firestarter:build"
+            "browserTarget": "dogfire:build"
           }
         },
         "test": {
@@ -110,7 +110,7 @@
         }
       }
     },
-    "firestarter-e2e": {
+    "dogfire-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -118,7 +118,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "firestarter:serve"
+            "devServerTarget": "dogfire:serve"
           }
         },
         "lint": {
@@ -133,5 +133,5 @@
       }
     }
   },
-  "defaultProject": "firestarter"
+  "defaultProject": "dogfire"
 }

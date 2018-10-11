@@ -1,6 +1,7 @@
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../core/auth.service';
 
 type UserFields = 'email' | 'password';
@@ -33,11 +34,20 @@ export class UserFormComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  constructor(private _http: HttpClient,
+              private fb: FormBuilder,
+              private auth: AuthService) { }
 
   ngOnInit() {
     this.buildForm();
+    this.getRazas();
   }
+
+ // pillo las razas con observable 
+getRazas() {
+ const obs = this._http.get('https://dog.ceo/api/breeds/list/all');
+  obs.subscribe((response) => console.log(response));
+}
 
   toggleForm() {
     this.newUser = !this.newUser;
@@ -58,10 +68,7 @@ export class UserFormComponent implements OnInit {
 
   buildForm() {
     this.userForm = this.fb.group({
-      'email': ['', [
-        Validators.required,
-        Validators.email,
-      ]],
+      'email': ['', [Validators.required, Validators.email, ] ],
       'password': ['', [
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
         Validators.minLength(6),

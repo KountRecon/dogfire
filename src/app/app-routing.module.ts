@@ -1,3 +1,4 @@
+import { DogFormComponent } from './ui/dog-form/dog-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -15,8 +16,8 @@ const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
   { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
   { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
-
-  { path: 'ssr', component: SsrPageComponent }
+  { path: 'ssr', component: SsrPageComponent },
+  { path: 'dogform', component: DogFormComponent },
 ];
 
 @NgModule({
